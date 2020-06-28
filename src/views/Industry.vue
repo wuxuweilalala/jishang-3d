@@ -1,6 +1,6 @@
 <template>
   <div class="industry">
-    <div class="industry-top-box">
+    <div class="industry-top-box page-header">
       <icon name="industry-top" class="industry-top"></icon>
     </div>
     <div class="industry-left">

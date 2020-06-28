@@ -1,7 +1,7 @@
 <template>
   <div class="home-box">
     <!--    <v-chart :options="barOption"/>-->
-    <div class="home-top">
+    <div class="home-top page-header">
       <icon name="tot-top" class="tot-top"></icon>
     </div>
     <div class="center">
@@ -158,7 +158,11 @@
             .arrow-right {
               width: 34px;
               height: 100%;
+              transition: transform .8s;
             }
+          }
+          .title-box:hover .arrow-right{
+            transform: translate(20px,0);
           }
         }
 
@@ -351,4 +355,5 @@
     width: 312px;
     height: 122px;
   }
+
 </style>

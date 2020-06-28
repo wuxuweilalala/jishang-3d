@@ -1,6 +1,6 @@
 <template>
   <div class="elasticPage">
-    <div class="header">
+    <div class="header page-header">
       <Icon name="financial_title" class="tot-top"></Icon>
     </div>
     <main class="flex">
@@ -11,13 +11,20 @@
             <li class="content-li" v-for="(item,index) in financial" :key="index">
               <!--              金融价值的sub标题-->
               <div class="subTitle">{{item.title}}</div>
-              <!--              服务数据list-->
+              <!--              list-->
               <ul class="subData f_wrap" v-if="item.type==='data'">
                 <div class="topbot"></div>
                 <li class="dataItem "  v-for="(sub,subIndex) in item.subList" :key="subIndex">
                   <div class="dataBox f_column">
                     <p class="subText">{{sub.text}}</p>
-                    <div :class="[`val_${subIndex}`, 'flex','text']"><span>{{sub.value}}</span><p>{{sub.unit}}</p></div>
+                    <div :class="[`val_${subIndex}`, 'flex','text']">
+                      <ICountUp
+                              :endVal="sub.value"
+                              :options="options"
+                      />
+<!--                      <span>{{sub.value}}</span>-->
+                      <p>{{sub.unit}}</p>
+                    </div>
                   </div>
                 </li>
                 <div class="bottombot"></div>
@@ -48,7 +55,7 @@
                 </div>
                 <li class="buttJointItem f_r_between" v-for="(sub,subIndex) in item.subList" :key="subIndex">
                   <div class="text">{{sub.text}}</div>
-                  <div style="width: 266px;" class="f_r_between">
+                  <div class="f_r_between buttJointItem_icon">
                     <Icon v-if="sub.cooperation==1" class="selected" name="selected"></Icon>
                     <Icon v-if="sub.agreement==1" class="selected" name="selected"></Icon>
                   </div>
@@ -126,16 +133,26 @@
 </template>
 
 <script>
+  import ICountUp from 'vue-countup-v2';
   import Icon from '@/components/Icon.vue'
   export default {
     name: "Economics",
     components: {
-      Icon
+      Icon,
+      ICountUp
     },
     data() {
       return {
         financial:[],
-        economics:[]
+        economics:[],
+        options: {
+          useEasing: true,
+          useGrouping: true,
+          separator: ',',
+          decimal: '.',
+          prefix: '',
+          suffix: ''
+        },
       }
     },
     created() {
@@ -374,6 +391,7 @@
         line-height: 50px;
         color: #FFFFFF;
         padding: 0 10px;
+        margin-bottom: 12px;
       }
       &:nth-child(2n-1){
         margin-right: 40px;
@@ -496,7 +514,7 @@
     height: 48px;
     padding: 0 130px 0 33px;
     background: rgba(86, 204, 242, 0.4);
-    margin-top: 22px;
+    /*margin-top: 22px;*/
     p{
       font-size: 24px;
       height: 48px;
@@ -522,7 +540,7 @@
 
 .subCarryOut{
   width: 1030px;
-  padding: 64px 0 0 44px;
+  padding: 52px 0 0 44px;
   .subCarryOut-box{
     width:491px;
   }
@@ -679,6 +697,10 @@
   }
 }
 
+
+.buttJointItem_icon{
+  width: 266px;
+}
 
   /*  icon*/
   .capacityIcon_i{

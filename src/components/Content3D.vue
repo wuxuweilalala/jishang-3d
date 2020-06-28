@@ -63,6 +63,13 @@
           <v-chart :options="allyieldOption" class="allpowerOption"></v-chart>
         </div>
       </div>
+      <div class="click-box">
+        <div v-for="(item,i) in linkName"
+             :key="i"
+             :class="'click'+i"
+             class="click-btn"
+             @click="showPopup(i)"></div>
+      </div>
       <div class="yield-box">
         <div class="chart-box">
           <p>本月单日产量</p>
@@ -115,10 +122,12 @@
   import {MTLLoader, OBJLoader} from 'mtl-obj-loader';
   import OrbitControls from 'three-orbitcontrols';
   import ECharts from 'vue-echarts';
+  import {TextBufferGeometry,MeshBasicMaterial,Vector3,Mesh} from 'three';
   import 'echarts/lib/chart/bar';
   import 'echarts/lib/chart/line';
   import Icon from '@/components/Icon';
   import {dayKwh, DayYield, dayConsume, dayPower, dataList} from '@/assets/js/chartData';
+  import GLTFLoader from 'three-gltf-loader';
 
 
   export default {
@@ -558,22 +567,23 @@
         }, //本月单日产量单耗chart
         linkList: [],
         linkName: [
-          {name: '下料环节', isRise: true, x: -260, y: -40, z: 200},
-          {name: '钻孔环节', isRise: false,x: -280, y: -40, z: 500},
-          {name: '清洗环节', isRise: true,x: -320, y: -40, z: 800},
-          {name: '干膜湿膜环节', isRise: true,x: -360, y: -40, z: 1100},
-          {name: '显影环节', isRise: false,x: -460, y: -40, z: -240},
-          {name: '二铜环节', isRise: true,x: -620, y: -200, z: -240},
-          {name: '蚀刻环节', isRise: true,x: -320, y: -200, z: 800},
-          {name: '检验环节', isRise: false,x: -260, y: -200, z: 200},
-          {name: '三修环节', isRise: true,x: -260, y: -360, z: 200},
-          {name: '阻焊环节', isRise: true,x: -280, y: -360, z: 560},
-          {name: '文字印刷环节', isRise: false,x: -320, y: -360, z: 1100},
-          {name: '油墨烘干环节', isRise: true,x: -390, y: -360, z: -240},
-          {name: '喷锡化金环节', isRise: true,x: -240, y: -490, z: -0},
-          {name: '微割环节', isRise: false,x: -280, y: -490, z: 560},
-          {name: '测试环节', isRise: true,x: -320, y: -490, z: 1100},
-          {name: '包装环节', isRise: true,x: -500, y: -490, z: -240}
+          {name: '下料环节', isRise: true, x: -220, y: -10, z: 700},
+          // {name: '下料环节', isRise: true, x: -260, y: -40, z: 200},
+          {name: '钻孔环节', isRise: false,x: -240, y: -10, z: 1000},
+          {name: '清洗环节', isRise: true,x: -280, y: -10, z: 1300},
+          {name: '干膜湿膜环节', isRise: true,x: -300, y: -10, z: 1600},
+          {name: '显影环节', isRise: false,x: -460, y: -10, z: 280},
+          {name: '二铜环节', isRise: true,x: -620, y: -150, z: 280},
+          {name: '蚀刻环节', isRise: true,x: -280, y: -150, z: 1300},
+          {name: '检验环节', isRise: false,x: -220, y: -150, z: 700},
+          {name: '三修环节', isRise: true,x: -220, y: -300, z: 700},
+          {name: '阻焊环节', isRise: true,x: -240, y: -300, z: 1060},
+          {name: '文字印刷环节', isRise: false,x: -280, y: -300, z: 1600},
+          {name: '油墨烘干环节', isRise: true,x: -350, y: -300, z: 280},
+          {name: '喷锡化金环节', isRise: true,x: -200, y: -400, z: 500},
+          {name: '微割环节', isRise: false,x: -240, y: -400, z: 1060},
+          {name: '测试环节', isRise: true,x: -280, y: -400, z: 1600},
+          {name: '包装环节', isRise: true,x: -460, y: -400, z: 280}
         ],
         objs: [],
         isShowPopup: false,
@@ -634,13 +644,13 @@
         // rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
         // this.scene.add( rectLightHelper );
       },
-      // 初始化控制
+      /*// 初始化控制
       initControls() {
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         this.controls.minPolarAngle = 0;
         this.controls.maxPolarAngle = Math.PI / 2;
-      },
-      initObjLoader(mtlPath, objPath, pointPath) {
+      },*/
+      initObjLoader(mtlPath, objPath, pointPath,pointMtl,fontPath,linePath,lineMtl) {
         var objLoader = new OBJLoader();//obj加载器
         var mtlLoader = new MTLLoader();//材质文件加载器
 
@@ -659,9 +669,9 @@
               // metalness: 1, //金属1 塑料0 默认0.5
               side: THREE.DoubleSide //THREE.FrontSide 正面,THREE.BackSide 反面,THREE.DoubleSide 双面
             });
-            obj.scale.set(1.2, 1.2, 1.2); //放大obj组对象
+            obj.scale.set(1.1, 1.1, 1.1); //放大obj组对象
             obj.rotateY(-Math.PI / 1.9)
-            obj.position.set(-900, -500, 0)
+            obj.position.set(-800, -400, 500)
             that.scene.add(obj);//返回的组对象插入场景中
             // obj.material = LocalGroundMaterial
             obj.traverse(e => {
@@ -670,61 +680,111 @@
 
               }
             })
-            for (let i = 0; i < that.linkName.length; i++) {
+            mtlLoader.load(lineMtl,(materials)=>{
+              objLoader.setMaterials(materials);
+              objLoader.load(linePath,(line)=>{
+                let LocalGroundMaterial = new THREE.MeshLambertMaterial({
+                  // map:texture,
+                  color: "#FFDC0C",
+                  // color:'#00BBFF',
+                  transparent: true,
+                  // shininess: 4,
+                  opacity: 1,
+                  // specular:'#00BBFF',
+                  // metalness: 1, //金属1 塑料0 默认0.5
+                  side: THREE.DoubleSide //THREE.FrontSide 正面,THREE.BackSide 反面,THREE.DoubleSide 双面
+                });
+                line.scale.set(1, 1, 1); //放大obj组对象
+                // line.rotateY(Math.PI/1)
+                line.position.set(0, -70, 0)
+                obj.add(line);//返回的组对象插入场景中
+                // obj.material = LocalGroundMaterial
+                line.traverse(e => {
+                  if (e.isMesh) {
+                    e.material = LocalGroundMaterial
 
-              objLoader.load(pointPath, mesh => {
-                var texture = new THREE.Texture(that.createCanvas(dataList[i].name));
-                texture.needsUpdate = true;
-                var spriteMaterial = new THREE.SpriteMaterial({map: texture, color: 0xffffff});
-                var sprite = new THREE.Sprite(spriteMaterial);
-                sprite.scale.set(100, 100, 1);
-                mesh.scale.set(0.5, 0.5, 0.5);
-                mesh.children[0].material.color.set('#999999')
-                mesh.position.set(that.linkName[i].x, that.linkName[i].y, that.linkName[i].z);
-                /*if (i === 0) {
-                  mesh.position.set(-260, -40, 200);//下料
-                } else if (i === 1) {
-                  mesh.position.set(-280, -40, 500);//钻孔
-                } else if (i === 2) {
-                  mesh.position.set(-320, -40, 800);//清洗
-                } else if (i === 3) {
-                  mesh.position.set(-360, -40, 1100);//干膜湿膜
-                } else if (i === 4) {
-                  mesh.position.set(-460, -40, -240);//显影
-                } else if (i === 5) {
-                  mesh.position.set(-620, -200, -240);//二铜
-                } else if (i === 6) {
-                  mesh.position.set(-320, -200, 800);//蚀刻
-                } else if (i === 7) {
-                  mesh.position.set(-260, -200, 200);//检验
-                } else if (i === 8) {
-                  mesh.position.set(-260, -360, 200);//三修
-                } else if (i === 9) {
-                  mesh.position.set(-280, -360, 560);//阻焊
-                } else if (i === 10) {
-                  mesh.position.set(-320, -360, 1100);//文字印刷
-                } else if (i === 11) {
-                  mesh.position.set(-390, -360, -240);//油墨烘干
-                } else if (i === 12) {
-                  mesh.position.set(-240, -490, 0);//喷锡化金
-                } else if (i === 13) {
-                  mesh.position.set(-280, -490, 560);//微割
-                } else if (i === 14) {
-                  mesh.position.set(-320, -490, 1100);//测试
-                } else if (i === 15) {
-                  mesh.position.set(-500, -490, -240);//包装
-                }*/
-                sprite.position.set(0, 100, 0)
-                mesh.add(sprite)
-                that.scene.add(mesh)
-                // debugger
-                // that.objs.push(mesh)
-                mesh.children[0].name = dataList[i].name
-                that.objs.push(mesh.children[0])
+                  }
+                })
+              })
+            })
+            /*var onProgress = function(xhr) {
+              if (xhr.lengthComputable) {
+                var percentComplete = xhr.loaded / xhr.total * 100;
+                var percent = document.getElementById("percent");
+                percent.innerText = Math.round(percentComplete, 2) + '% 已经加载';
+              }
+            };
+            var onError = function(xhr) {};*/
+            for (let i = 0; i < that.linkName.length; i++) {
+              mtlLoader.load(pointMtl,materials=>{
+                materials.preload();
+                objLoader.setMaterials(materials);
+                objLoader.load(pointPath, mesh => {
+                  let LocalGroundMaterial = new THREE.MeshLambertMaterial({
+                    // map:texture,
+                    color: "rgba(255,60,60,.1)",
+                    // color:'#00BBFF',
+                    transparent: true,
+                    // shininess: 4,
+                    opacity: 0.7,
+                    // specular:'#00BBFF',
+                    // metalness: 1, //金属1 塑料0 默认0.5
+                    side: THREE.DoubleSide //THREE.FrontSide 正面,THREE.BackSide 反面,THREE.DoubleSide 双面
+                  });
+                  // var texture = new THREE.Texture(that.createCanvas(dataList[i].name));
+                  // texture.needsUpdate = true;
+                  // var spriteMaterial = new THREE.SpriteMaterial({map: texture, color: 0xffffff});
+                  // var sprite = new THREE.Sprite(spriteMaterial);
+                  // sprite.scale.set(100, 100, 1);
+                  let fontLoader = new THREE.FontLoader()
+                  fontLoader.load( fontPath, function ( response ) {
+                    let textGeometry = new THREE.TextBufferGeometry( dataList[i].name, {
+                      font: response,
+                      size: 24,
+                      height: 2,
+                      curveSegments: 10
+                    } );
+
+                    let textMaterial = new THREE.MeshBasicMaterial( { color: '0xffffff' } );
+                    let textMesh = new THREE.Mesh( textGeometry, textMaterial );
+                    textMesh.position.copy( new THREE.Vector3( 200, 100, 0 ) );
+                    textMesh.scale.set(3, 3, 3)
+                    textMesh.rotateY(90)
+                    mesh.add( textMesh );
+                  } );
+                  mesh.scale.set(0.4, 0.4, 0.4);
+                  mesh.children[0].material.color.set('#999999')
+                  mesh.position.set(that.linkName[i].x, that.linkName[i].y, that.linkName[i].z);
+                  // sprite.position.set(0, 100, 0)
+                  // mesh.add(sprite)
+                  that.scene.add(mesh)
+                  mesh.traverse(e => {
+                    if (e.isMesh) {
+                      e.material = LocalGroundMaterial
+                    }
+                  })
+                  // that.objs.push(mesh)
+                  mesh.children.name = dataList[i].name
+                  that.objs.push(mesh.children[0])
+                  console.log(mesh.children)
+                })
               })
             }
           })
         })
+      },
+      addText(name,font,location,color){
+        let textGeometry = new TextBufferGeometry( name, {
+          font: font,
+          size: 20,
+          height: 2,
+          curveSegments: 10
+        } );
+
+        let textMaterial = new MeshBasicMaterial( { color: color } );
+        let textMesh = new Mesh( textGeometry, textMaterial );
+        textMesh.position.copy( location );
+        this.scene.add( textMesh );
       },
       //给模型添加点击事件
       // onMouseClick(event){
@@ -738,13 +798,29 @@
       //   // 获取raycaster直线和所有模型相交的数组集合
       //   // let target = this.scene.children.find(e=>e.name=='popup')
       //   // console.log(target)
-      //   // debugger
+      //   debugger
       //   let intersects = raycaster.intersectObjects( this.objs, true);
       //   console.log(intersects);
       // },
-      onMouseClick(event) {
+      showPopup(i){
+        console.log(i)
+        this.isShowPopup = true
+        this.allpowerOption.series[0].data = dataList[i].kwh
+        this.allpowerOption.series[1].data = dataList[i].yield
+        this.allyieldOption.series[0].data = dataList[i].consume.one
+        this.allyieldOption.series[1].data = dataList[i].consume.two
+        this.popupObj={}
+        this.popupObj.name = dataList[i].name
+        this.popupObj.allKwh = dataList[i].allKwh.toFixed(2)
+        this.popupObj.allYield = dataList[i].allYield.toFixed(2)
+        this.popupObj.allConsume = dataList[i].allConsume.toFixed(2)
+      },
+      /*onMouseClick(event) {
           event.preventDefault();
+          // if(!this.$refs.station)return
+        console.log(this.$refs.station)
           let station = this.$refs.station
+
           let getBoundingClientRect = station.getBoundingClientRect();
         // 屏幕坐标转标准设备坐标
           let x = ((event.clientX - getBoundingClientRect.left) / station.offsetWidth) * 2 - 1;// 标准设备横坐标
@@ -758,22 +834,25 @@
           let rayCaster = new THREE.Raycaster(this.camera.position, ray);
           // 返回射线选中的对象 第二个参数如果不填 默认是false
         let intersects = rayCaster.intersectObjects(this.objs, true);
-        if (intersects==[]) return
-        let name = intersects[0].object.name
-        dataList.map(item=>{
-          if (name==item.name){
-            this.isShowPopup = true
-            this.allpowerOption.series[0].data = item.kwh
-            this.allpowerOption.series[1].data = item.yield
-            this.allyieldOption.series[0].data = item.consume.one
-            this.allyieldOption.series[1].data = item.consume.two
-            this.popupObj.name = name
-            this.popupObj.allKwh = item.allKwh.toFixed(2)
-            this.popupObj.allYield = item.allYield.toFixed(2)
-            this.popupObj.allConsume = item.allConsume.toFixed(2)
-          }
-        })
-      },
+        console.log(intersects)
+        debugger
+        if (intersects.length > 0){
+          let name = intersects[0].object.name
+          dataList.map(item=>{
+            if (name==item.name){
+              this.isShowPopup = true
+              this.allpowerOption.series[0].data = item.kwh
+              this.allpowerOption.series[1].data = item.yield
+              this.allyieldOption.series[0].data = item.consume.one
+              this.allyieldOption.series[1].data = item.consume.two
+              this.popupObj.name = name
+              this.popupObj.allKwh = item.allKwh.toFixed(2)
+              this.popupObj.allYield = item.allYield.toFixed(2)
+              this.popupObj.allConsume = item.allConsume.toFixed(2)
+            }
+          })
+        }
+      },*/
       closePopup(){
         this.isShowPopup = false
       },
@@ -843,6 +922,15 @@
       },
       tabFalse() {
         this.isShowTab = false
+      },
+      initGltfLoader(path) {
+        var gltfLader = new GLTFLoader();//obj加载器
+        let that = this
+        gltfLader.load(path, function(obj) {
+          obj.scene.scale.set(8, 8, 8);
+          that.scene.add(obj.scene);
+          // that.camera.lookAt(that.group.position);
+        })
       }
     },
     mounted() {
@@ -869,15 +957,20 @@
       // let objPath = '/static/obj/' + 'zb.obj'
       // let objPath = '/static/obj/' + 'zb.obj'
       let mtlPath = process.env.BASE_URL + 'obj/1.mtl'
+      let pointMtl = process.env.BASE_URL + 'obj/point.mtl'
       let objPath = process.env.BASE_URL + 'obj/zb.obj'
       let pointPath = process.env.BASE_URL + 'obj/point.obj'
+      let fontPath = process.env.BASE_URL + 'font/YouSheBiaoTiHei_Regular.json'
+      let linePath = process.env.BASE_URL + 'obj/line.obj'
+      let lineMtl = process.env.BASE_URL + 'obj/line.mtl'
       this.start = new Date().getTime()
-      this.initObjLoader(mtlPath, objPath, pointPath)
+      this.initObjLoader(mtlPath, objPath, pointPath,pointMtl,fontPath,linePath,lineMtl)
+      // this.initGltfLoader()
       this.initPerspectiveCamera(25, {x: 2500, y: 0, z: -2000})
       // this.initOrthographicCamera(3000, { x: 0, y: 3000, z: 2000,})
       this.initRenderer()
       this.render()
-      this.initControls()
+      // this.initControls()
       // 添加window 的resize事件监听
       window.addEventListener('resize', this.onWindowResize)
       this.$nextTick(() => {
@@ -896,8 +989,20 @@
           muted: "false",
         });
       })
-      window.addEventListener( 'click', this.onMouseClick, false );
+      // window.addEventListener( 'click', this.onMouseClick, false );
+      window.addEventListener('keyup',(e)=>{
+        if (e.keyCode==27){
+          console.log(e.keyCode)
+          this.isShowPopup = false
+        }
+      })
+      // 初始化 GltfLoader
+
+
     },
+    beforeDestroy() {
+      window.removeEventListener( 'keyup',()=>{},false);
+    }
   }
 </script>
 
@@ -1079,6 +1184,7 @@
         transform: translate(-50%);
         background: linear-gradient(to bottom, rgba(50, 109, 178, .5) 0%, rgba(10, 26, 45, .5) 100%);
         box-shadow: 0 4px 10px 0 #000000;
+        z-index: 2;
 
         .popup-top {
           width: 100%;
@@ -1146,7 +1252,78 @@
           }
         }
       }
-
+      .click-box {
+        .click-btn {
+          width: 28px;
+          height: 35px;
+          position: absolute;
+          cursor: pointer;
+        }
+        .click0 {
+          top: 550px;
+          left: 1075px;
+        }
+        .click1 {
+          top: 550px;
+          left: 948px;
+        }
+        .click2 {
+          top: 550px;
+          left: 843px;
+        }
+        .click3 {
+          top: 550px;
+          left: 740px;
+        }
+        .click4 {
+          top: 550px;
+          left: 1395px;
+        }
+        .click5 {
+          top: 645px;
+          left: 1460px;
+        }
+        .click6 {
+          top: 636px;
+          left: 843px;
+        }
+        .click7 {
+          top: 645px;
+          left: 1075px;
+        }
+        .click8 {
+          top: 745px;
+          left: 1075px;
+        }
+        .click9 {
+          top: 735px;
+          left: 922px;
+        }
+        .click10 {
+          top: 720px;
+          left: 730px;
+        }
+        .click11 {
+          top: 755px;
+          left: 1350px;
+        }
+        .click12 {
+          top: 822px;
+          left: 1165px;
+        }
+        .click13 {
+          top: 797px;
+          left: 922px;
+        }
+        .click14 {
+          top: 779px;
+          left: 729px;
+        }
+        .click15 {
+          top: 818px;
+          left: 1395px;
+        }
+      }
       .yield-box {
         position: absolute;
         top: 31px;

@@ -7,7 +7,7 @@ dotList = [
         msg:[
             {
                 label:'企业数',
-                value:'21',
+                value:'44',
             },
             {
                 label:'智能网关数',
@@ -247,11 +247,11 @@ dotList = [
         msg:[
             {
                 label:'企业数',
-                value:'4',
+                value:'18',
             },
             {
                 label:'智能网关数',
-                value:'14',
+                value:'21',
             },
             {
                 label:'园区地址',
@@ -347,7 +347,7 @@ dotList = [
         msg:[
             {
                 label:'企业数',
-                value:'18',
+                value:'17',
             },
             {
                 label:'智能网关数',
@@ -358,7 +358,347 @@ dotList = [
                 value:'浙江省温州市永嘉县黄田街道千石行政村',
             }
         ]
-    }
+    },
+    {
+        x:555,
+        y:413,
+        tipsTitle:'东耕工业区',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'7',
+            },
+            {
+                label:'智能网关数',
+                value:'20',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市瓯海区娄桥街道东耕行吹台东路',
+            }
+        ]
+    },
+    {
+        x:460,
+        y:463,
+        tipsTitle:'阁巷印染园区',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'33',
+            },
+            {
+                label:'智能网关数',
+                value:'37',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市瑞安市南滨街道阁巷社区阁三村经济开发区印染园区',
+            }
+        ]
+    },
+    {
+        x:565,
+        y:395,
+        tipsTitle:'国家大学科技园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'3',
+            },
+            {
+                label:'智能网关数',
+                value:'11',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市瓯海区经济开发区东方南路',
+            }
+        ]
+    },
+    {
+        x:690,
+        y:340,
+        tipsTitle:'海洋经济孵化园',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'6',
+            },
+            {
+                label:'智能网关数',
+                value:'17',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市乐清市蒲岐镇寨桥行政村乐清湾港区海洋经济产业科技孵化园',
+            }
+        ]
+    },
+    {
+        x:453,
+        y:525,
+        tipsTitle:'沪山卤制品园区',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'9',
+            },
+            {
+                label:'智能网关数',
+                value:'19',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市苍南县灵溪镇门前行政村门前自然村',
+            }
+        ]
+    },
+    {
+        x:669,
+        y:310,
+        tipsTitle:'乐清精密模具产业园',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'1',
+            },
+            {
+                label:'智能网关数',
+                value:'2',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市乐清市天成街道万一行政村',
+            }
+        ]
+    },
+    {
+        x:649,
+        y:290,
+        tipsTitle:'乐清智能科技园区',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'12',
+            },
+            {
+                label:'智能网关数',
+                value:'27',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市乐清市石帆街道竹屿行政村村路乐清智能科技创业园',
+            }
+        ]
+    },
+    {
+        x:545,
+        y:350,
+        tipsTitle:'鹿城区鹿翔小微园',
+        position:'right',
+        msg:[
+            {
+                label:'企业数',
+                value:'4',
+            },
+            {
+                label:'智能网关数',
+                value:'7',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区丰门街道丁桥社区正岙路鞋都铁路沿线西侧23-2号地块',
+            }
+        ]
+    },
+    {
+        x:538,
+        y:325,
+        tipsTitle:'鹿城区潘岙经济园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'2',
+            },
+            {
+                label:'智能网关数',
+                value:'3',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区丰门街道潘岙行政村',
+            }
+        ]
+    },
+    {
+        x:523,
+        y:342,
+        tipsTitle:'鹿城区前陈小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'1',
+            },
+            {
+                label:'智能网关数',
+                value:'2',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区丰门街道鞋都社区鞋都大道鞋都一期26号地块',
+            }
+        ]
+    },
+    {
+        x:523,
+        y:305,
+        tipsTitle:'鹿城区仰义渔渡轻工产业小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'2',
+            },
+            {
+                label:'智能网关数',
+                value:'3',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区仰义街道渔渡行政村渔藤路43弄1号',
+            }
+        ]
+    },
+    {
+        x:550,
+        y:295,
+        tipsTitle:'鹿城双岙小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'3',
+            },
+            {
+                label:'智能网关数',
+                value:'9',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区双屿街道双岙行政村b-26地块',
+            }
+        ]
+    },
+    {
+        x:425,
+        y:430,
+        tipsTitle:'名泰创业小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'20',
+            },
+            {
+                label:'智能网关数',
+                value:'24',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市文成县巨屿镇镇中东路',
+            }
+        ]
+    },
+    {
+        x:550,
+        y:378,
+        tipsTitle:'瓯海区娄桥创业创新产业园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'4',
+            },
+            {
+                label:'智能网关数',
+                value:'8',
+            },
+            {
+                label:'园区地址',
+                value:'瓯海区娄桥创业创新产业园（一期）',
+            }
+        ]
+    },
+    {
+        x:517,
+        y:388,
+        tipsTitle:'瓯海区岩二小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'14',
+            },
+            {
+                label:'智能网关数',
+                value:'17',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市瓯海区南白象街道金竹工业区',
+            }
+        ]
+    },
+    {
+        x:507,
+        y:370,
+        tipsTitle:'温州吉尔达小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'2',
+            },
+            {
+                label:'智能网关数',
+                value:'18',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市鹿城区丰门街道丁桥社区鞋都三期纬三路中国鞋都三期33号地块',
+            }
+        ]
+    },
+    {
+        x:445,
+        y:495,
+        tipsTitle:'萧江小微园',
+        position:'left',
+        msg:[
+            {
+                label:'企业数',
+                value:'76',
+            },
+            {
+                label:'智能网关数',
+                value:'94',
+            },
+            {
+                label:'园区地址',
+                value:'浙江省温州市平阳县萧江镇落马头行政村落马头自然村轻工业产业小微园',
+            }
+        ]
+    },
 ]
 
 let dotList_2 = [{
@@ -393,9 +733,9 @@ function playB_dotList () {
         dotList.forEach(item => {
             item.x -= 30
             item.y -= 73
-            console.log(str.indexOf(item.tipsTitle) > -1,item.tipsTitle)
+            // console.log(str.indexOf(item.tipsTitle) > -1,item.tipsTitle)
             if (str.indexOf(item.tipsTitle) > -1) {
-                console.log(item.tipsTitle)
+                // console.log(item.tipsTitle)
                 dotList_2.forEach(subItem => {
                     if (item.tipsTitle === subItem.tipsTitle) {
                         for (const key in subItem) {

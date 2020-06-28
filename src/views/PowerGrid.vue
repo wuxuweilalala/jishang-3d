@@ -1,6 +1,6 @@
 <template>
   <div class="power-grid">
-    <div class="power-top-box">
+    <div class="power-top-box page-header">
       <icon name="power-top" class="power-top"></icon>
     </div>
     <div class="power-left">
@@ -46,7 +46,7 @@
             <p>65</p>
           </div>
           <div class="bottom2">
-            <icon name="power-arrow" class="power-event1"></icon>
+            <div class="power-event1"></div>
           </div>
           <div class="bottom3">
             <p>建设后</p>
@@ -65,7 +65,7 @@
             <p>32</p>
           </div>
           <div class="bottom2">
-            <icon name="power-arrow" class="power-event1"></icon>
+            <div class="power-event1"></div>
           </div>
           <div class="bottom3">
             <p>建设后</p>
@@ -157,14 +157,19 @@
           },
           grid: {
             left: '0',
-            right: '0.5%',
+            right: '4%',
             bottom: '1%',
-            top: '2%',
+            top: '8%',
             containLabel: true
           },
           xAxis: {
             type: 'category',
-            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            name: '月份',
+            nameLocation: "end",
+            nameTextStyle: {
+              color: '#fff',
+            },
+            data: [7, 8, 9, 10, 11, 12,1, 2, 3, 4, 5, 6],
             splitLine: {
               show: true,
               lineStyle: {
@@ -183,6 +188,11 @@
           },
           yAxis: {
             type: 'value',
+            name: '户数',
+            nameTextStyle: {
+              color: '#fff',
+              align: 'center'
+            },
             splitLine: {
               show: true,
               lineStyle: {
@@ -228,42 +238,6 @@
 
               data: [
                 {
-                  value: 201,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
-                  value: 0,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
-                  value: 0,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
-                  value: 31,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
-                  value: 211,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
-                  value: 67,
-                  itemStyle: {
-                    color: "#56CCF2"
-                  },
-                },
-                {
                   value: 92,
                   itemStyle: {
                     color: "#04F0FF"
@@ -272,33 +246,69 @@
                 {
                   value: 85,
                   itemStyle: {
-                    color: "#04F0FF"
+                    color: "#56CCF2"
                   },
                 },
                 {
                   value: 103,
                   itemStyle: {
-                    color: "#04F0FF"
+                    color: "#56CCF2"
                   },
                 },
                 {
                   value: 78,
                   itemStyle: {
-                    color: "#04F0FF"
+                    color: "#56CCF2"
                   },
                 },
                 {
                   value: 94,
                   itemStyle: {
-                    color: "#04F0FF"
+                    color: "#56CCF2"
                   },
                 },
                 {
                   value: 451,
                   itemStyle: {
+                    color: "#56CCF2"
+                  },
+                },
+                {
+                  value: 201,
+                  itemStyle: {
                     color: "#04F0FF"
                   },
                 },
+                {
+                  value: 0,
+                  itemStyle: {
+                    color: "#04F0FF"
+                  },
+                },
+                {
+                  value: 0,
+                  itemStyle: {
+                    color: "#04F0FF"
+                  },
+                },
+                {
+                  value: 31,
+                  itemStyle: {
+                    color: "#04F0FF"
+                  },
+                },
+                {
+                  value: 211,
+                  itemStyle: {
+                    color: "#04F0FF"
+                  },
+                },
+                {
+                  value: 67,
+                  itemStyle: {
+                    color: "#04F0FF"
+                  },
+                }
               ]
             }
           ]
@@ -312,7 +322,11 @@
           },
           xAxis: {
             type: 'category',
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            name: '月份',
+            nameTextStyle:{
+              color:'#fff'
+            },
+            data: [7, 8, 9, 10, 11, 12,1, 2, 3, 4, 5, 6, ],
             splitLine: {
               show: true,
               lineStyle: {
@@ -331,6 +345,11 @@
           },
           yAxis: {
             type: 'value',
+            name: '园区数',
+            nameTextStyle:{
+              color:'#fff',
+              align: 'center'
+            },
             splitLine: {
               show: true,
               lineStyle: {
@@ -348,14 +367,14 @@
             }
           },
           grid: {
-            left: '0',
-            right: '0.5%',
+            left: '1%',
+            right: '5%',
             bottom: '1%',
-            top: '2%',
+            top: '9%',
             containLabel: true
           },
           series: [{
-            data: [1, 0, 0, 2, 1, 1, 1, 3, 2, 3, 4, 0],
+            data: [1, 3, 2, 3, 4, 0,1, 0, 0, 2, 1, 1],
             type: 'bar',
             itemStyle: {
               color: {
@@ -377,14 +396,13 @@
           },
           xAxis: {
             type: 'category',
-            name: "日期",
+            name: "月份",
             nameLocation: "end",
             nameTextStyle: {
               color: "#fff",
-              verticalAlign: "top"
             },
             boundaryGap: false,
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            data: [7, 8, 9, 10, 11, 12,1, 2, 3, 4, 5, 6 ],
             splitLine: {
               show: true,
               lineStyle: {
@@ -403,6 +421,11 @@
           },
           yAxis: {
             type: 'value',
+            name: '企业数',
+            nameTextStyle:{
+              color:'#fff',
+              align: 'center'
+            },
             splitLine: {
               show: true,
               lineStyle: {
@@ -421,13 +444,13 @@
           },
           grid: {
             left: '0',
-            right: '0.5%',
+            right: '5.5%',
             bottom: '1%',
-            top: '2%',
+            top: '11%',
             containLabel: true
           },
           series: [{
-            data: [12, 0, 3, 14, 27, 38, 32, 34, 78, 54, 17, 95],
+            data: [ 32, 34, 78, 54, 17, 95,12, 0, 3, 14, 27, 38],
             type: 'line',
             color: "#05EEFF",
             areaStyle: {
@@ -601,8 +624,11 @@
             margin: 0 54px;
 
             .power-event1 {
+              background: url("../assets/imgs/arrow-right.png") no-repeat;
+              background-size: 100% 100%;
               width: 100%;
               height: 100%;
+              animation: leftHover 4s linear infinite;
             }
           }
 
@@ -699,8 +725,8 @@
       }
 
       .village-chart1 {
-        width: 747px;
-        height: 292px;
+        width: 761px;
+        height: 320px;
         margin-top: 9px;
 
         canvas {
@@ -777,5 +803,9 @@
         }
       }
     }
+  }
+  @keyframes leftHover {
+    0% {transform: translate(-54px,0);opacity: 0}
+    100%{transform: translate(54px,0);opacity: 1}
   }
 </style>

@@ -3558,35 +3558,35 @@ var averageList = [0.1168, 0.3882, 1.1321, 2.2776, 0.9376, 0.6448, 1.2093, 0.016
 // function convertData(arr) {
 //
 // }
-// (function () {
-//     var now = new Date();
-//     var date = now.getDate() - 1;//得到日期
-//     var hour = now.getHours() - 1 + ':00';//得到小时
-//     // let otherDay = dayKwh.key.splice(date, dayKwh.key.length);
-//     // dayConsume.key=DayYield.key=dayKwh.key = [...otherDay, ...dayKwh.key];//转换日期
-//     // dayConsume.key = DayYield.key = dayKwh.key = dayKwh.key;//转换日期
-//     // let kwhOther = dayKwh.value.splice(date, dayKwh.value.length);
-//     // let yieldOther = DayYield.value.splice(date, DayYield.value.length);
-//     // let consumeOther = dayConsume.value.splice(date, dayConsume.value.length);
-//     // dayKwh.value= [...kwhOther, ...dayKwh.value];//用电量
-//     // DayYield.value=[...yieldOther,...DayYield.value];//日产量
-//     // dayConsume.value=[...consumeOther,... dayConsume.value]; //单耗
-//     // dayConsume.value = dayConsume.value.map(e => Number(e.toFixed(4)))
-//     let index = dayPower.key.findIndex(e => e == hour);
-//     let timeOther = dayPower.key.splice(index + 1, dayPower.key.length);
-//     let powerOther = dayPower.value.splice(index + 1, dayPower.value.length);
-//     // dayPower.key=[...timeOther,...dayPower.key];
-//     // dayPower.value=[...powerOther, ...dayPower.value];
-//     for (let i in dataList) {
-//         dataList[i].yield = dataList[i].yield.map(e => Number(e.toFixed(2)));
-//         let other = dataList[i].kwh.splice(date, dataList[i].kwh.length)
-//         dataList[i].kwh.splice(date, dataList[i].kwh.length)
-//         dataList[i].yield.splice(date, dataList[i].yield.length)
-//         // dataList[i].yield=[...yieldOther,... dataList[i].yield];//日产量
-//         // dataList[i].kwh= [...other, ...dataList[i].kwh];//用电量
-//         // let yieldOther= dataList[i].yield.splice(date,dataList[i].yield.length)
-//         // dataList[i].yield=[...yieldOther,... dataList[i].yield];//日产量
-//     }
-//
-// })()
+(function () {
+    var now = new Date();
+    var date = now.getDate() - 1;//得到日期
+    var hour = now.getHours() - 1 + ':00';//得到小时
+    let otherDay = dayKwh.key.splice(date, dayKwh.key.length);
+    // dayConsume.key=DayYield.key=dayKwh.key = [...otherDay, ...dayKwh.key];//转换日期
+    dayConsume.key = DayYield.key = dayKwh.key = dayKwh.key;//转换日期
+    let kwhOther = dayKwh.value.splice(date, dayKwh.value.length);
+    let yieldOther = DayYield.value.splice(date, DayYield.value.length);
+    let consumeOther = dayConsume.value.splice(date, dayConsume.value.length);
+    // dayKwh.value= [...kwhOther, ...dayKwh.value];//用电量
+    // DayYield.value=[...yieldOther,...DayYield.value];//日产量
+    // dayConsume.value=[...consumeOther,... dayConsume.value]; //单耗
+    dayConsume.value = dayConsume.value.map(e => Number(e.toFixed(4)))
+    let index = dayPower.key.findIndex(e => e == hour);
+    let timeOther = dayPower.key.splice(index + 1, dayPower.key.length);
+    let powerOther = dayPower.value.splice(index + 1, dayPower.value.length);
+    // dayPower.key=[...timeOther,...dayPower.key];
+    // dayPower.value=[...powerOther, ...dayPower.value];
+    for (let i in dataList) {
+        dataList[i].yield = dataList[i].yield.map(e => Number(e.toFixed(2)));
+        let other = dataList[i].kwh.splice(date, dataList[i].kwh.length)
+        dataList[i].kwh.splice(date, dataList[i].kwh.length)
+        dataList[i].yield.splice(date, dataList[i].yield.length)
+        // dataList[i].yield=[...yieldOther,... dataList[i].yield];//日产量
+        // dataList[i].kwh= [...other, ...dataList[i].kwh];//用电量
+        // let yieldOther= dataList[i].yield.splice(date,dataList[i].yield.length)
+        // dataList[i].yield=[...yieldOther,... dataList[i].yield];//日产量
+    }
+
+})()
 export {dayKwh,DayYield,dayConsume,dayPower,dataList}

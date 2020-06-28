@@ -1,0 +1,167 @@
+{
+  "accessors": [
+    {
+      "name": "角锥-Mesh_0_positions",
+      "componentType": 5126,
+      "count": 56,
+      "min": [
+        -56.98120880126953,
+        -54.46265411376953,
+        -56.16551971435547
+      ],
+      "max": [
+        56.98120880126953,
+        74.38905334472656,
+        56.16551971435547
+      ],
+      "type": "VEC3",
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "name": "角锥-Mesh_0_normals",
+      "componentType": 5126,
+      "count": 56,
+      "min": [
+        -0.9279032349586487,
+        -1,
+        -0.9297295808792114
+      ],
+      "max": [
+        0.9279032349586487,
+        1,
+        0.9297295808792114
+      ],
+      "type": "VEC3",
+      "bufferView": 1,
+      "byteOffset": 0
+    },
+    {
+      "name": "角锥-Mesh_0_texcoords",
+      "componentType": 5126,
+      "count": 56,
+      "min": [
+        2.1073420342077043e-8,
+        -0.06064164638519287
+      ],
+      "max": [
+        1.809390902519226,
+        1
+      ],
+      "type": "VEC2",
+      "bufferView": 2,
+      "byteOffset": 0
+    },
+    {
+      "name": "角锥-Mesh_0_indices",
+      "componentType": 5123,
+      "count": 84,
+      "min": [
+        0
+      ],
+      "max": [
+        55
+      ],
+      "type": "SCALAR",
+      "bufferView": 3,
+      "byteOffset": 0
+    }
+  ],
+  "asset": {
+    "generator": "obj2gltf",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "name": "point",
+      "byteLength": 1960,
+      "uri": "data:application/octet-stream;base64,BxxRQjLHlEKZtU3CBxxRwjLHlEKZtU3CBxxRwjLHlEKZtU1CBxxRQjLHlEKZtU1CwuxjwgzchkLNuEBCwuxjwgzchkLNuEDCHLEBwRXcWMIAAAAAxeBDwgnVhkJ+qWDCxeBDQgnVhkJ+qWDC3CQ0KMLZWcIxjvzAwuxjQgzchkLNuEDCwuxjQgzchkLNuEBCHLEBQRXcWMIAAAAAxeBDQgnVhkJ+qWBCxeBDwgnVhkJ+qWBC3CQ0KMLZWcIxjvxABxxRwjLHlEKZtU1CxeBDwgnVhkJ+qWBCxeBDQgnVhkJ+qWBCBxxRQjLHlEKZtU1CBxxRwjLHlEKZtU3CwuxjwgzchkLNuEDCwuxjwgzchkLNuEBCBxxRwjLHlEKZtU1CBxxRQjLHlEKZtU3CxeBDQgnVhkJ+qWDCxeBDwgnVhkJ+qWDCBxxRwjLHlEKZtU3CwuxjQgzchkLNuEDCBxxRQjLHlEKZtU3CBxxRQjLHlEKZtU1CwuxjQgzchkLNuEBCwuxjwgzchkLNuEDCxeBDwgnVhkJ+qWDC3CQ0KMLZWcIxjvzAHLEBwRXcWMIAAAAAxeBDwgnVhkJ+qWBCwuxjwgzchkLNuEBCHLEBwRXcWMIAAAAA3CQ0KMLZWcIxjvxAxeBDQgnVhkJ+qWDCwuxjQgzchkLNuEDCHLEBQRXcWMIAAAAA3CQ0KMLZWcIxjvzAwuxjQgzchkLNuEBCxeBDQgnVhkJ+qWBC3CQ0KMLZWcIxjvxAHLEBQRXcWMIAAAAAHLEBwRXcWMIAAAAA3CQ0KMLZWcIxjvzAHLEBQRXcWMIAAAAA3CQ0KMLZWcIxjvxABxxRwjLHlEKZtU1CBxxRQjLHlEKZtU1CBxxRQjLHlEKZtU3CBxxRwjLHlEKZtU3CAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAEYttv2fivr4AAAAAEYttv2fivr4AAAAAEYttv2fivr4AAAAAAAAAAFiKvL7CAm6/AAAAAFiKvL7CAm6/AAAAAFiKvL7CAm6/EYttP2fivr4AAAAAEYttP2fivr4AAAAAEYttP2fivr4AAAAAAAAAAFiKvL7CAm4/AAAAAFiKvL7CAm4/AAAAAFiKvL7CAm4/AAAAAELhDz/kvVM/AAAAAELhDz/kvVM/AAAAAELhDz/kvVM/AAAAAELhDz/kvVM/hRhUv4ZbDz8AAAAAhRhUv4ZbDz8AAAAAhRhUv4ZbDz8AAAAAhRhUv4ZbDz8AAAAAAAAAAELhDz/kvVO/AAAAAELhDz/kvVO/AAAAAELhDz/kvVO/AAAAAELhDz/kvVO/hhhUP4ZbDz8AAAAAhhhUP4ZbDz8AAAAAhhhUP4ZbDz8AAAAAhhhUP4ZbDz8AAAAAYrQxv51tO76wNzK/YrQxv51tO76wNzK/E4Edv16U+7540B2/E4Edv16U+7540B2/Y7Qxv6JtO76uNzI/Y7Qxv6JtO76uNzI/FoEdv12U+7500B0/FoEdv12U+7500B0/ZLQxP5xtO76tNzK/ZLQxP5xtO76tNzK/FoEdP12U+7500B2/FoEdP12U+7500B2/YrQxP6RtO76wNzI/YrQxP6RtO76wNzI/E4EdP16U+7540B0/E4EdP16U+7540B0/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAl8Yyv4J6FD6tbzM/l8YyP4J6FD6tbzM/mMYyP496FD6sbzO/mMYyv496FD6sbzO/3GOBPYTTbz+E028/hNNvP4TTbz/gY4E93GOBPeBjgT3GUac9hA5yP8cVaz+EDnI/AAAAP2jaCj4R5aY9lBdyP14jaz+UF3I/AAAAP+glCT7GUac9hA5yP8cVaz+EDnI/AAAAP2jaCj4R5aY9lBdyP14jaz+UF3I/AAAAP+glCT6E028/4GOBPQFqZz+gWZ08wO85P/RuHD/cY4E94GOBPYTTbz+E028/ABJ7P/xZZz8gQsc+8vI5P4TTbz/gY4E93GOBPYTTbz/4r8Q9MhV7P4AgjD4YIsc+hNNvP4TTbz/GUac9hA5yP/EEtTI4/LY9eSBpPwAAgD/HFWs/hA5yP8cVaz+EDnI/H5rnP94SAT/Rqh4/gFZ1vQAAAD9o2go+XiNrP5QXcj8Hk+c/xAoBP2sMHz9gY3i9AAAAP+glCT5eI2s/lBdyPweT5z/ECgE/awwfP2BjeL0AAAA/6CUJPscVaz+EDnI/H5rnP94SAT/Rqh4/gFZ1vQAAAD9o2go+awwfP2BjeL0AAAA/6CUJPgAAAD9o2go+0aoeP4BWdb2E028/4GOBPXkgaT8AAIA/8QS1Mjj8tj2E028/hNNvPwEAAwAAAAMAAQACAAQABQAGAAcACAAJAAoACwAMAA0ADgAPABIAEwAQABAAEQASABUAFwAUABcAFQAWABkAGwAYABsAGQAaAB4AHwAcABwAHQAeACEAIwAgACMAIQAiACUAJwAkACcAJQAmACoAKwAoACgAKQAqAC4ALwAsACwALQAuADIAMwAwADAAMQAyADQAJQAkACwANQAtACgANgApACEAIAA3AA=="
+    }
+  ],
+  "bufferViews": [
+    {
+      "name": "bufferView_0",
+      "buffer": 0,
+      "byteLength": 672,
+      "byteOffset": 0,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_1",
+      "buffer": 0,
+      "byteLength": 672,
+      "byteOffset": 672,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_2",
+      "buffer": 0,
+      "byteLength": 448,
+      "byteOffset": 1344,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "name": "bufferView_3",
+      "buffer": 0,
+      "byteLength": 168,
+      "byteOffset": 1792,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "default",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.5,
+          0.5,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ],
+  "meshes": [
+    {
+      "name": "角锥-Mesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "角锥",
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

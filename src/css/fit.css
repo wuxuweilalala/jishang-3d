@@ -1,4 +1,4 @@
-@media screen and (min-width: 3200px) and (max-width:3839px){
+@media screen and (width: 3200px){
     body {
         display: flex;
         align-items: center;
@@ -21,6 +21,9 @@
         height: 715px;
         background: url("../assets/imgs/map_2.png");
         
+    }
+    #app .page-header{
+        top: -8%;
     }
 }
 @media screen and (width: 3840px) {

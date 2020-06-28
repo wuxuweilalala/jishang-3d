@@ -1,6 +1,6 @@
 <template>
   <div class="elasticPage">
-    <div class="header">
+    <div class="header page-header">
       <Icon name="elastic-title" class="tot-top"></Icon>
     </div>
     <main class="flex elasticPage-main">
@@ -68,7 +68,7 @@
                     <li v-for="(item,index) in dotList" :key="index" >
                         <div class="dot pointer" :style="`left:${item.x}px;top:${item.y}px`">
                             <div :class="['dotHalo',{'onDot':currDot===index}]" @click="currDot=index"><p></p><span></span></div>
-                            <span :class="[`tipsLabel_${item.position} tipsLabel_text`,{'onDotText':currDot===index}]" @click="currDot=index">{{item.tipsTitle}}</span>
+<!--                            <span :class="[`tipsLabel_${item.position} tipsLabel_text`,{'onDotText':currDot===index}]" @click="currDot=index">{{item.tipsTitle}}</span>-->
                             <div class="msg" v-if="index===currDot">
                                 <Icon name="map_dot" class="map_dot" ></Icon>
                                 <div class="dot-tips" >
@@ -178,7 +178,7 @@
         }
       ]
         this.dotList=dotList
-        console.log(dotList)
+        // console.log(dotList)
     },
       methods: {
           setDelay(i) {
@@ -467,12 +467,12 @@
           height: 83px;
           font-size: 24px;
           line-height: 34px;
-          color: #FFFFFF;
-          &:first-child{
+            color: #56CCF2;
+            &:first-child{
             margin-right: 35px;
           }
           .active{
-            color: #56CCF2;
+              color: #FFFFFF;
           }
           span{
             position: absolute;
@@ -668,34 +668,34 @@
     }
 /*    光晕*/
 .dotHalo{
-     background:#ffffff;
-    width: 4px;
-    height: 4px;
-    /*border: 6px rgba(242, 153, 74, 1) solid;*/
-    border: 6px rgba(86, 204, 242, 0.7) solid;
+     background:rgba(86, 204, 242, 1);
+    width: 6px;
+    height: 6px;
+    border: 4px rgba(86, 204, 242, 0.7) solid;
     border-radius:50%;
     position: relative;
     p,span{
         position: absolute;
-        left: -2px;
-        top: -2px;
-        width: 4px;
-        height: 4px;
-        border-radius:50%;
-        animation: Halo 2.2s  infinite;
-        /*box-shadow: 0px 0px 1px rgba(242, 153, 74, 1);*/
-        box-shadow: 0px 0px 1px rgba(86, 204, 242, 0.7);
-        /*background: */
-        margin: 0px;
+        left: -6px;
+        top: -6px;
+        transform: translate(-50%,-50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: Halo 4s  infinite;
+        border: 1px solid rgba(86, 204, 242, 0.3);
+        margin: 0;
+        padding: 0;
     }
     span{
-        animation-delay: 0.8s;
+        animation-delay: 1.6s;
     }
 }
     /*  动画*/
     @keyframes Halo{
-        10% {transform: scale(1);}
-        100% {transform: scale(8);}
+        0% {transform: scale(1);}
+        50% {transform: scale(2.5);}
+        100% {transform: scale(1);}
     }
     @keyframes opacity {
         to{

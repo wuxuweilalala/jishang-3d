@@ -1,6 +1,6 @@
 <template>
   <div class="TopPage flex">
-    <div class="home-top">
+    <div class="home-top page-header">
       <icon name="tot-title" class="tot-top"></icon>
     </div>
     <div class="history">
@@ -28,7 +28,11 @@
                           :options="options"
                           @ready="onUpdate"
                   />
-                  <span v-else>{{item.value}}</span>
+                  <ICountUp
+                          v-else
+                          :endVal="item.value"
+                          :options="options"
+                  /><span v-show="item.subTitle==='完成现场设备及表计协议的开发'">+</span>
                 </div><p>{{item.unit}}</p>
               </div>
           </div>
@@ -39,7 +43,11 @@
       <h1 class="title">当前进展</h1>
       <div class="currprogress-content flex">
         <div class="multisource f_r_center">
-          <h2 class="cardTitle">多源<Icon name="totTitleBtn" class="totTitleBtn"></Icon></h2>
+          <h2 class="cardTitle" @mousemove="activeIndex=1" @mouseout="activeIndex=0">
+            多源
+            <Icon name="totTitleBtn_1" v-if="activeIndex===1" class="totTitleBtn"></Icon>
+            <Icon name="totTitleBtn_0" v-else class="totTitleBtn"></Icon>
+          </h2>
           <div class="multisource-content">
             <div class="cont-container f_r_between">
               <div class="box f_column f_c_center anima box_anima">
@@ -64,7 +72,11 @@
         </div>
         <div class="cut-off-line"></div>
         <div class="standard f_c_center f_column">
-          <h2 class="cardTitle">标准<Icon name="totTitleBtn" class="totTitleBtn"></Icon></h2>
+          <h2 class="cardTitle" @mousemove="activeIndex=2" @mouseout="activeIndex=0">
+            标准
+            <Icon name="totTitleBtn_1" v-if="activeIndex===2" class="totTitleBtn"></Icon>
+            <Icon name="totTitleBtn_0" v-else class="totTitleBtn"></Icon>
+          </h2>
           <div class="standard-content">
             <div class="cont-container">
               <ul class="col ab_center">
@@ -101,7 +113,11 @@
         </div>
         <div class="cut-off-line"></div>
         <div class="control f_c_center f_column">
-          <h2 class="cardTitle">控制<Icon name="totTitleBtn" class="totTitleBtn"></Icon></h2>
+          <h2 class="cardTitle" @mousemove="activeIndex=3" @mouseout="activeIndex=0">
+            控制
+            <Icon name="totTitleBtn_1" v-if="activeIndex===3" class="totTitleBtn"></Icon>
+            <Icon name="totTitleBtn_0" v-else class="totTitleBtn"></Icon>
+          </h2>
           <div class="control-content flex">
             <ul class="control-ul f_column f_c_center">
               <li class="anima">
@@ -157,7 +173,8 @@
           prefix: '',
           suffix: ''
         },
-        timer:null
+        timer:null,
+        activeIndex:0
       }
     },
     created() {
@@ -175,31 +192,31 @@
         {
           subTitle:'累计积累能源数据',
           type:'string',
-          value:'69.7',
+          value:69.7,
           unit:'TB'
         },
         {
           subTitle:'完成现场设备及表计协议的开发',
           type:'string',
-          value:'100+',
+          value:100,
           unit:'种'
         },
         {
           subTitle:'总装机容量',
           type:'string',
-          value:'773,020',
+          value:773020,
           unit:'kVa'
         },
         {
-          subTitle:'完成现场数据接入',
+          subTitle:'完成项目接入数量',
           type:'string',
-          value:'1,500',
+          value:8351,
           unit:'个'
         },
         {
           subTitle:'实时总功率',
           type:'string',
-          value:'72,838.07',
+          value:72838.07,
           unit:'kW'
         }
       ]
@@ -450,6 +467,7 @@
     width: 354px;
     height: 83.74px;
     line-height: 83.74px;
+    z-index:-1;
   }
 }
   .cut-off-line{
